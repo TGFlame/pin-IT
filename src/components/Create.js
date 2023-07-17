@@ -39,6 +39,7 @@ const ImageIconWrapper = styled.div`
     padding: 10px;
     `
 const IconWrapper = styled.div`
+    margin-left: 60px;
     margin-top: 5px;
     display: flex;
     justify-content: flex-start;
@@ -240,7 +241,7 @@ function Create() {
              <KeyboardArrowUpIcon/>
              </div>
             <input type='file' accept='image/*' multiple='false' id='file' style={{display: 'none'}}  />
-            <label for='file'>Drag and drop or click to upload</label>
+            <label htmlFor='file'>Drag and drop or click to upload</label>
             </div>
             
             </div>
