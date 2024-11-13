@@ -3,9 +3,9 @@ import './App.css';
 import Header from './components/Header';
 import MainBored from './components/MainBored';
 import unsplash from './api/unsplash';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,createContext } from 'react';
 import { LinearProgress } from '@mui/material';
-import PinterestIcon from '@mui/icons-material/Pinterest';
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import styled from 'styled-components';
 import {Route,Routes, BrowserRouter as Router} from 'react-router-dom';
 import Create from './components/Create';
@@ -56,31 +56,7 @@ background-color: white;
     }
   } 
 `
-const Countwrapper = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-color: darkgray;
-font-size: 34px;
-font-weight: 700;
-position: absolute;
-height: 48px;
-left: 62px;
-top: 19.6vh;
-&:hover {
-  background-color: black;
-        color: white;
-}
-@media (max-height: 650px) {
-  top: 24vh;
-}
-@media (max-width: 480px) {
-      font-size: 24px;
-      
-@media (max-height: 900px) {
-  top: 18.5vh;
-}  
-`
+export const counterContext = createContext(0);
 function App() {
   const [counter, setCounter] = useState(0);
   const CountHandler = () => {
@@ -148,28 +124,27 @@ function App() {
   }
  useEffect(() => {
   getNewPins();
- }, []);
+ },[]);
   return (
     <>
     {loading === false ? 
       ( <>
         <LoadWrapper>
-        <PinterestIcon className='bounce'/>
+        <TipsAndUpdatesIcon className='bounce'/>
         <LinearProgress variant="determinate" value={progress} />
         </LoadWrapper>
         </>
       ) : (
      <> 
-     <Header OnSubmit={OnSearchSubmit}/>
-     <Countwrapper>
-     {counter}
-     </Countwrapper>
+     <counterContext.Provider value={counter}>
+     <Header OnSubmit={OnSearchSubmit} />
       <Router>
         <Routes>
         <Route path="/" element={<MainBored pins={pins} CountHandler={CountHandler} />}/>  
         <Route path='/Create' element={<Create/>}/>
         </Routes>
-      </Router> 
+      </Router>
+      </counterContext.Provider> 
      </>
     )} 
    </>

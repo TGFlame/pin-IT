@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import PinterestIcon from '@mui/icons-material/Pinterest';
+
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import { IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import TextsmsIcon from '@mui/icons-material/Textsms';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
+import { counterContext } from '../App';
 const LogoWrapper = styled.div`
 .MuiSvgIcon-root{
     color: #e60023;
@@ -134,12 +136,13 @@ function Header(props) {
         e.preventDefault();
         props.OnSubmit(input);
     }
+    const counter = useContext(counterContext);
   return (
     <>
       <Wrapper>
         <LogoWrapper>
             <IconButton>
-            <PinterestIcon/>
+            <TipsAndUpdatesIcon/>
             </IconButton>
          
         </LogoWrapper>
@@ -166,18 +169,19 @@ function Header(props) {
        
                    
     </Wrapper>
-       <IconsWrapper>
+    <IconsWrapper>
        <IconButton>
-       <NotificationsIcon/>
+            <NotificationsIcon/>
        </IconButton>
        <IconButton>
-       <TextsmsIcon/>
+            <TextsmsIcon/>
        </IconButton>
        <IconButton>
-       <FavoriteIcon/> 
+            <FavoriteIcon/>
+            {counter} 
        </IconButton>
        <IconButton>
-       <KeyboardArrowDownIcon/>
+             <KeyboardArrowDownIcon/>
        </IconButton>
    </IconsWrapper>
    </>
