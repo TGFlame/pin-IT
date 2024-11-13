@@ -2,16 +2,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useState } from 'react';
-const Wrapper = styled.div`
-padding: 8px;
-`
 
+const Wrapper = styled.div`
+  display: flex
+  flex-direction: column`
 const Container = styled.div`
  overflow: hidden;
  position: relative;
 
  img {
         width: 100%;
+        height: 100%;
         cursor: pointer;
         border-radius: 16px;
         object-fit: cover;
