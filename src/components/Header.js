@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import PinterestIcon from '@mui/icons-material/Pinterest';
+
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import { IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -141,7 +142,7 @@ function Header(props) {
       <Wrapper>
         <LogoWrapper>
             <IconButton>
-            <PinterestIcon/>
+            <TipsAndUpdatesIcon/>
             </IconButton>
          
         </LogoWrapper>

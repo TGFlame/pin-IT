@@ -5,7 +5,7 @@ import MainBored from './components/MainBored';
 import unsplash from './api/unsplash';
 import { useState,useEffect,createContext } from 'react';
 import { LinearProgress } from '@mui/material';
-import PinterestIcon from '@mui/icons-material/Pinterest';
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import styled from 'styled-components';
 import {Route,Routes, BrowserRouter as Router} from 'react-router-dom';
 import Create from './components/Create';
@@ -130,7 +130,7 @@ function App() {
     {loading === false ? 
       ( <>
         <LoadWrapper>
-        <PinterestIcon className='bounce'/>
+        <TipsAndUpdatesIcon className='bounce'/>
         <LinearProgress variant="determinate" value={progress} />
         </LoadWrapper>
         </>
